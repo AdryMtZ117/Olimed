@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage"
 import CalendarPage from "./components/CalendarPage"
 import PatientPage from "./components/PatientPage"
 import SettingsPage from "./components/SettingsPage"
+import PrescriptionPage from "./components/PrescriptionPage"
 import "./App.css"
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/patients" element={<PatientPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/prescription" element={<PrescriptionPage />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>

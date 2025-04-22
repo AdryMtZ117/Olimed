@@ -702,7 +702,29 @@ function CalendarPage() {
                       </button>
                     </div>
                     <div className="appointment-patient">{appointment.patient}</div>
-                    <button className="generate-recipe">Generar receta</button>
+                    <button
+                      className="generate-recipe"
+                      onClick={() => {
+                        // Find the patient by name
+                        const patient = patientList.find((p) => p.name === appointment.patient) || {
+                          id: 0,
+                          name: appointment.patient,
+                          age: "",
+                        }
+
+                        // Navigate to prescription page with patient data
+                        navigate("/prescription", {
+                          state: {
+                            patient: patient,
+                            appointmentDate: appointment.date,
+                            appointmentTime: appointment.time,
+                            returnTo: "calendar",
+                          },
+                        })
+                      }}
+                    >
+                      Generar receta
+                    </button>
                   </div>
                 ))
               ) : (
